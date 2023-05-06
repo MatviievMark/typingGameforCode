@@ -1,0 +1,103 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+
+<style>
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: block;
+    background-color: #f0f0f0;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 85%;
+  }
+
+  .button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: showButton 1s ease forwards;
+    margin: 0 20px;
+    flex-grow: 1;
+  }
+
+  .button:first-child {
+    margin-left: 0;
+  }
+
+  .button:last-child {
+    margin-right: 0;
+  }
+
+  .button:hover {
+    opacity: 0.8;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+
+  .button:active {
+    opacity: 0.6;
+  }
+
+  @keyframes showButton {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="button-container">
+      <button class="button" onclick="redirectToPage('short')">Short</button>
+      <button class="button" onclick="redirectToPage('mid')">Medium</button>
+      <button class="button" onclick="redirectToPage('long')">Long</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function redirectToPage(variable) {
+    window.location.href = "{{ url_for('typing') }}?variable=" + variable;
+  }
+</script>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+/*CSS for home */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/*CSS for menu*/
+nav {
+  background-color: #f2f2f2;
+  width: 100%;
+  top: 0;
+  position: fixed;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  font-family: "Typewriter Font", monospace;
+}
+
+/*CSS for typing text */
+.grey {
+  color: grey;
+}
+
+.incorrect {
+  color: red;
+}
+.incorrect_spaces {
+  background-color: #e0a3a3;
+}
+
+.current {
+  color: #aaa;
+  background-color: #f2f2f2;
+}
+
+.textInputShow {
+  font-size: 170%;
+  text-align: center;
+  margin: 10%;
+  font-family: "Typewriter Font", monospace;
+}
+
+.info {
+  font-size: 170%;
+  text-align: center;
+  margin: 10%;
+  font-family: "Typewriter Font", monospace;
+}
+
+input[type="text"] {
+  opacity: 0;
+  pointer-events: auto;
+}

@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block title %}Typing{% endblock %} {% block content
+%}
+
+<!-- Create a container for the grey text -->
+<div id="text-container" class="textInputShow"></div>
+<!-- Error counter-->
+<div class="info">
+  <span id="error-count">Errors: 0</span>
+  <br />
+  <span id="accuracy-counter">100%</span>
+  <br />
+  <br />
+  <span id="timer">00:00</span>
+  <br />
+  <span id="wpm"> wpm: 0</span>
+</div>
+<!-- Create an input field for the user to type in -->
+<input type="text" id="input" />
+
+{% endblock %}

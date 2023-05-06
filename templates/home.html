@@ -1,0 +1,128 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+
+<style>
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: block;
+    background-color: #f0f0f0;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-family: "Typewriter Font", monospace;
+    font-size: 48px;
+    text-align: center;
+    margin-top: 50%;
+
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(30) forwards;
+  }
+
+  h1:after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #333;
+    animation: showButton 0s 3s forwards;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes showButton {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  .button:hover {
+    opacity: 0.8;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+
+  .button:active {
+    opacity: 0.6;
+  }
+
+  .button-container {
+    text-align: center;
+    margin-top: 5%;
+  }
+
+  .fade-in {
+    animation: showButton 1s ease forwards;
+  }
+</style>
+
+<div class="wrapper">
+  <div class="container">
+    <h1>Welcome to TypeFlow</h1>
+    <div class="button-container">
+      <button class="button" onclick="redirectToPage()">Get started</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  function redirectToPage() {
+    window.location.href = "{{ url_for('selectLength') }}"
+  }
+
+  const button = document.querySelector(".button");
+  button.style.opacity = 0;
+  const h1 = document.querySelector("h1");
+  h1.addEventListener("animationend", () => {
+    button.classList.add("fade-in");
+  });
+</script>
+
+{% endblock %}
